@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author NIGHTMARE
  */
-public class Principal {
+class principal{
 
     /**
      * @param args the command line arguments
