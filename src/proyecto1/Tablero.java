@@ -46,10 +46,10 @@ public class Tablero {
         
         if(turno==0){
             System.out.println("");
-            System.out.println("<<<MUEVEN LAS ROJAS>>>");
+            System.out.println("  <<<MUEVEN LAS ROJAS>>>");
         }else{
             System.out.println("");
-            System.out.println("<<<MUEVEN LAS VERDES>>>");
+            System.out.println("  <<<MUEVEN LAS VERDES>>>");
         }
     }
     

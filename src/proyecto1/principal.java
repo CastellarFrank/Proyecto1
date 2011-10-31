@@ -32,7 +32,7 @@ class principal{
         fichas[1][12]=new Peon(4,6,1);fichas[1][13]=new Peon(5,6,1);fichas[1][14]=new Peon(6,6,1);fichas[1][15]=new Peon(7,6,1);
         
         
-        int turno=0,fmov,cmov;
+        int turno=1,fmov,cmov;
         String nombre1,nombre2;
         char menu;
         
