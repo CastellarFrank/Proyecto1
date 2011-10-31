@@ -32,17 +32,9 @@ public class General {
         }
         return false;
     }
-    public boolean validarFC(int n){
-        if(n-1>=8 || n-1<0){
-            System.out.println("<<<Ha ingresado una posicion invalida>>>");
-            return true;
-        }else{
-            return false;
-        }
-    }
-    public boolean validarFC(int fmov,int cmov){
+    
+    public static boolean validarFC(int fmov,int cmov){
         if(fmov-1>=8 || cmov-1>=8 || fmov-1<0 || cmov-1<0){
-            System.out.println(">>>La posicion ingresada es invalida<<<");
             return false;
         }else{
             return true;

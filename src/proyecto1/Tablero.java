@@ -24,7 +24,7 @@ public class Tablero {
         
     }
     
-    public void imprimirTabla(int turno){
+    public static void imprimirTabla(int turno){
         System.out.print(" ");
         for(int i=0;i<tabla.length;i++){
             System.out.print(" "+(i+1)+" ");
@@ -46,10 +46,10 @@ public class Tablero {
         
         if(turno==0){
             System.out.println("");
-            System.out.println("<<<MUEVEN LAS VERDES>>>");
+            System.out.println("<<<MUEVEN LAS ROJAS>>>");
         }else{
             System.out.println("");
-            System.out.println("<<<MUEVEN LAS ROJAS>>>");
+            System.out.println("<<<MUEVEN LAS VERDES>>>");
         }
     }
     

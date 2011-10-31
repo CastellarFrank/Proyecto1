@@ -9,9 +9,28 @@ package proyecto1;
  * @author NIGHTMARE
  */
 public class Peon extends Fichas{
-
+    private int fkill1,ckill1,fkill2,ckill2;
+    private boolean kill1,kill2,mov1;
+    
+    
     public Peon(int f,int c,int e){
         super(f,c,e);
+        if(bando==0){
+            fkill1=fila+1;
+            ckill1=columna+1;
+            fkill2=fila-1;
+            ckill2=columna+1;
+            fm1=fila;
+            cm1=columna+1;
+        }else{
+            fkill1=fila-1;
+            ckill1=columna-1;
+            fkill2=fila+1;
+            ckill2=columna-1;
+            fm1=fila;
+            cm1=columna-1;
+        }
+        
     }
     
     @Override
@@ -21,4 +40,47 @@ public class Peon extends Fichas{
         return "PV";
     }
     
+    
+    @Override
+    public boolean valPosiblesmov(){
+        System.out.print("Sus posibles movimientos son: ");
+        if(General.validarFC(fm1+1,cm1+1)){
+            if(Tablero.tabla[fm1][cm1].equals("--")){
+                mov1=true;
+                System.out.print("-("+(fm1-8<0 ? (fm1-8)*-1:fm1-8)+","+(cm1+1)+") ");
+            }else{
+                mov1=false;
+            }
+        }else{
+            mov1=false;
+        }
+        
+        if(General.validarFC(fkill1+1,ckill1+1)){
+            if(Tablero.tabla[fkill1][ckill1].charAt(1)==nemesis){
+                System.out.print("-("+(fkill1-8<0 ? (fkill1-8)*-1:fkill1-8)+","+(ckill1+1)+") ");
+                kill1=true;            
+            }else{
+                kill1=false;
+            }
+        }else{
+            kill1=false;
+        }
+        if(General.validarFC(fkill2+1,ckill2+1)){
+            if(Tablero.tabla[fkill2][ckill2].charAt(1)==nemesis){
+                System.out.print("-("+(fkill2-8<0 ? (fkill2-8)*-1:fkill2-8)+","+(ckill2+1)+") ");
+                kill2=true;
+            }else{
+                kill2=false;
+            }
+        }else{
+            kill2=false;
+        }
+        System.out.println("\n");
+        if(mov1==true || kill1==true || kill2==true){
+            return true;
+        }else{
+            return false;
+        }
+            
+    }
 }

@@ -21,5 +21,10 @@ public class Visir extends Fichas {
         return"VV";
                    
     }
+
+    @Override
+    public boolean valPosiblesmov() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
     
 }

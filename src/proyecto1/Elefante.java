@@ -20,5 +20,10 @@ public class Elefante extends Fichas {
             return "ER";
         return "EV";
     }
+
+    @Override
+    public boolean valPosiblesmov() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
     
 }

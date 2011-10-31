@@ -20,5 +20,10 @@ public class Rey extends Fichas {
             return "RR";
         return "RV";
     }
+
+    @Override
+    public boolean valPosiblesmov() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
     
 }
