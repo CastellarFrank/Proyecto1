@@ -9,7 +9,6 @@ package proyecto1;
  * @author NIGHTMARE
  */
 public class Torre extends Fichas{
-    
     public Torre(int f,int c,int e){
         super(f,c,e);
     }
@@ -17,8 +16,8 @@ public class Torre extends Fichas{
     @Override
     public String id(int e){
         if(e==0)
-            return "TR ";
-        return "TV ";
+            return "TR";
+        return "TV";
     }
     
 }

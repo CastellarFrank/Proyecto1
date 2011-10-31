@@ -17,8 +17,8 @@ public class Elefante extends Fichas {
     @Override
     public String id(int e) {
         if(e==0)
-            return "ER ";
-        return "EV ";
+            return "ER";
+        return "EV";
     }
     
 }

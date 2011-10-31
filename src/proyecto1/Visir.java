@@ -17,8 +17,8 @@ public class Visir extends Fichas {
     @Override
     public String id(int e) {
         if(e==0)
-            return "VR ";
-        return"VV ";
+            return "VR";
+        return"VV";
                    
     }
     

@@ -17,14 +17,14 @@ public class Tablero {
         for(int i=0;i<tabla.length;i++){
             for(int e=0;e<tabla[i].length;e++){
                 if(tabla[i][e]==null){
-                    tabla[i][e]="-- ";
+                    tabla[i][e]="--";
                 }
             }
         }
         
     }
     
-    public void imprimirTabla(){
+    public void imprimirTabla(int turno){
         System.out.print(" ");
         for(int i=0;i<tabla.length;i++){
             System.out.print(" "+(i+1)+" ");
@@ -34,6 +34,7 @@ public class Tablero {
             System.out.print((tabla.length-(i)+" "));
             for(int e=0;e<tabla[i].length;e++){
                 System.out.print(tabla[i][e]);
+                System.out.print(" ");
             }
             System.out.print((tabla.length-(i)));
             System.out.print("\n");
@@ -41,6 +42,14 @@ public class Tablero {
         System.out.print(" ");
         for(int i=0;i<tabla.length;i++){
             System.out.print(" "+(i+1)+" ");
+        }
+        
+        if(turno==0){
+            System.out.println("");
+            System.out.println("<<<MUEVEN LAS VERDES>>>");
+        }else{
+            System.out.println("");
+            System.out.println("<<<MUEVEN LAS ROJAS>>>");
         }
     }
     

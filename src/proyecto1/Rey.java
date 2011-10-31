@@ -17,8 +17,8 @@ public class Rey extends Fichas {
     @Override
     public String id(int e) {
         if(e==0)
-            return "RR ";
-        return "RV ";
+            return "RR";
+        return "RV";
     }
     
 }

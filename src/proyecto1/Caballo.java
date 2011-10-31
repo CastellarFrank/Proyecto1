@@ -17,8 +17,8 @@ public class Caballo extends Fichas{
     @Override
     public String id(int e) {
         if(e==0)
-            return "CR ";
-        return"CV ";
+            return "CR";
+        return"CV";
     }
     
 }

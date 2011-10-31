@@ -17,8 +17,8 @@ public class Peon extends Fichas{
     @Override
     public String id(int e) {
         if(e==0)
-            return "PR ";
-        return "PV ";
+            return "PR";
+        return "PV";
     }
     
 }
