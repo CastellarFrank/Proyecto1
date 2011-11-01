@@ -47,7 +47,7 @@ public class Peon extends Fichas{
         if(General.validarFC(fm1+1,cm1+1)){
             if(Tablero.tabla[fm1][cm1].equals("--")){
                 mov1=true;
-                System.out.print("-("+(fm1-8<0 ? (fm1-8)*-1:fm1-8)+","+(cm1+1)+") ");
+                System.out.print(" ("+(fm1-8<0 ? (fm1-8)*-1:fm1-8)+","+(cm1+1)+") ");
             }else{
                 mov1=false;
             }
@@ -57,7 +57,7 @@ public class Peon extends Fichas{
         
         if(General.validarFC(fkill1+1,ckill1+1)){
             if(Tablero.tabla[fkill1][ckill1].charAt(1)==nemesis){
-                System.out.print("-("+(fkill1-8<0 ? (fkill1-8)*-1:fkill1-8)+","+(ckill1+1)+") ");
+                System.out.print(" ("+(fkill1-8<0 ? (fkill1-8)*-1:fkill1-8)+","+(ckill1+1)+") ");
                 kill1=true;            
             }else{
                 kill1=false;
@@ -67,7 +67,7 @@ public class Peon extends Fichas{
         }
         if(General.validarFC(fkill2+1,ckill2+1)){
             if(Tablero.tabla[fkill2][ckill2].charAt(1)==nemesis){
-                System.out.print("-("+(fkill2-8<0 ? (fkill2-8)*-1:fkill2-8)+","+(ckill2+1)+") ");
+                System.out.print(" ("+(fkill2-8<0 ? (fkill2-8)*-1:fkill2-8)+","+(ckill2+1)+") ");
                 kill2=true;
             }else{
                 kill2=false;
@@ -75,7 +75,7 @@ public class Peon extends Fichas{
         }else{
             kill2=false;
         }
-        System.out.println("\n");
+        System.out.println("");
         if(mov1==true || kill1==true || kill2==true){
             return true;
         }else{
@@ -83,4 +83,34 @@ public class Peon extends Fichas{
         }
             
     }
+
+    @Override
+    public boolean mover(int f, int c) {
+        boolean movido=false;
+        if(General.validarFC(f,c)){
+            int tf=(f-8<0 ? (f-8)*-1:f-8),tc=c-1;
+            if(fkill1==tf && ckill1==tc && kill1==true){
+                Tablero.tabla[fkill1][ckill1]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=fkill1;
+                columna=ckill1;
+                movido=true;
+            }else if(fkill2==tf && ckill2==tc && kill2==true){
+                Tablero.tabla[fkill2][ckill2]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=fkill2;
+                columna=ckill2;
+                movido=true;
+            }else if(fm1==tf && cm1==tc && mov1==true){
+                Tablero.tabla[fm1][cm1]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=fm1;
+                columna=cm1;
+                movido=true;
+            }
+        }
+        return movido;
+    }
+    
+    
 }

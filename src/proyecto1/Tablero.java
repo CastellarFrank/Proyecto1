@@ -24,7 +24,7 @@ public class Tablero {
         
     }
     
-    public static void imprimirTabla(int turno){
+    public static void imprimirTabla(int turno,int error){
         System.out.print(" ");
         for(int i=0;i<tabla.length;i++){
             System.out.print(" "+(i+1)+" ");
@@ -43,13 +43,19 @@ public class Tablero {
         for(int i=0;i<tabla.length;i++){
             System.out.print(" "+(i+1)+" ");
         }
-        
+        if(error==1){
+            General.errorFueraTabla();
+        }else if(error==2){
+            General.errorVaciaContraria();
+        }else if(error==3){
+            General.errorNoMovimientos();
+        }else if(error==4){
+            General.errorFichaSinMovimientos();
+        }
         if(turno==0){
-            System.out.println("");
-            System.out.println("  <<<MUEVEN LAS ROJAS>>>");
+            System.out.println("\n  <<<MUEVEN LAS ROJAS>>>");
         }else{
-            System.out.println("");
-            System.out.println("  <<<MUEVEN LAS VERDES>>>");
+            System.out.println("\n  <<<MUEVEN LAS VERDES>>>");
         }
     }
     

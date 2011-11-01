@@ -32,7 +32,7 @@ public class Torre extends Fichas{
             m1=false;
         }else{
             System.out.println("hola");
-            System.out.print("-("+(fila-8<0 ? (fila-8)*-1:fila-8)+","+(columna+2)+"-"+(cm1+1)+") ");
+            System.out.print(" ("+(fila-8<0 ? (fila-8)*-1:fila-8)+","+(columna+2)+"-"+(cm1+1)+") ");
             m1=true;
         }
         fm1=buscarAtras(fila,columna,nemesis);
@@ -40,7 +40,7 @@ public class Torre extends Fichas{
             m2=false;
         }else{
             System.out.println("hola1");
-            System.out.println("-("+(fila-8<0 ? (fila-8)*-1:fila-8)+","+columna+"-"+(fm1+1)+") ");
+            System.out.println(" ("+(fila-8<0 ? (fila-8)*-1:fila-8)+","+columna+"-"+(fm1+1)+") ");
             m2=true;
         }
         
@@ -48,17 +48,17 @@ public class Torre extends Fichas{
         if(fma==fila){
             ma=false;
         }else{
-            System.out.print("-("+((fila-1)-8)+"-"+(fma-8)+","+(columna+1)+") ");
+            System.out.print(" ("+((fila-1)-8)+"-"+(fma-8)+","+(columna+1)+") ");
             ma=true;
         }
         fmb=buscarAbajo(fila,columna,nemesis);
         if(fmb==fila){
             mb=false;
         }else{
-            System.out.print("-("+((fila+1)-8)+"-"+(fmb-8)+","+(columna+1)+") ");
+            System.out.print(" ("+((fila+1)-8)+"-"+(fmb-8)+","+(columna+1)+") ");
             ma=true;
         }
-        System.out.println("\n");
+        System.out.println("");
         if(m1==true || ma==true || mb==true || m2==true)
             return true;
         return false;
@@ -104,6 +104,11 @@ public class Torre extends Fichas{
             }
         }
         return f;
+    }
+
+    @Override
+    public boolean mover(int f, int c) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
     

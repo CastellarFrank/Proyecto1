@@ -11,9 +11,8 @@ import java.util.Scanner;
  * @author NIGHTMARE
  */
 public class General {
-    private Scanner lea=new Scanner(System.in);
     
-    public void menuPrincipal(){
+    public static void menuPrincipal(){
         System.out.println("");
         System.out.println("Menu");
         System.out.println("");
@@ -23,11 +22,11 @@ public class General {
         System.out.println("");
     }
     
-    public boolean validarMenu(char s){
+    public static boolean validarMenu(char s){
         if(s!='1' && s!='2' && s!='3'){
             System.out.println("");
             System.out.println("<<<LA OPCION INGRESADA ES INCORRECTA>>>");
-            this.menuPrincipal();
+            menuPrincipal();
             return true;
         }
         return false;
@@ -39,6 +38,19 @@ public class General {
         }else{
             return true;
         }        
+    }
+    
+    public static void errorFueraTabla(){
+        System.out.print("\n>>>Error, La posicion ingresada no existe en el tablero<<<");
+    }
+    public static void errorVaciaContraria(){
+        System.out.print("\n>>>Error, La posicion seleccionada esta vacia, o ha seleccionado una ficha del contrario<<<");
+    }
+    public static void errorNoMovimientos(){
+        System.out.print("\n<<<Error, la ficha no tiene ningun movimiento posible>>>");
+    }
+    public static void errorFichaSinMovimientos(){
+        System.out.print("<<<\nError, no es posible mover la ficha a la posicion ingresada>>>");
     }
     
 }

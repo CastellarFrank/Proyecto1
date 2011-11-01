@@ -35,5 +35,6 @@ public abstract class Fichas {
         columna=cmov;
     }
     public abstract boolean valPosiblesmov();
-        
+    
+    public abstract boolean mover(int f,int c);
 }
