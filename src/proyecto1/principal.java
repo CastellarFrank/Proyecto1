@@ -59,7 +59,9 @@ class principal{
                 errorP=0;
                 do{
                     
-                    Tablero.imprimirTabla(turno,errorP);
+                    Tablero.imprimirTabla(turno);
+                    Tablero.mensajes(errorP);
+                    Tablero.quienMueve(turno);
                     System.out.print("Ingrese la fila donde se encuentra la ficha a mover: ");
                     fmov=lea.nextInt();                           
                     System.out.print("Ingrese la columna donde se encuentra la ficha a mover: ");
@@ -72,7 +74,9 @@ class principal{
                                         boolean posicion=false;
                                         errorP=5;
                                         do{
-                                            Tablero.imprimirTabla(turno, errorP);
+                                            Tablero.imprimirTabla(turno);
+                                            Tablero.mensajes(errorP);
+                                            Tablero.quienMueve(turno);
                                             System.out.print("Ingrese la fila a donde desea mover la ficha: ");
                                             fmov=lea.nextInt();
                                             System.out.print("Ingrese la columna a donde desea la ficha: ");

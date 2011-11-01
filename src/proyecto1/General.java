@@ -40,17 +40,4 @@ public class General {
         }        
     }
     
-    public static void errorFueraTabla(){
-        System.out.print("\n>>>Error, La posicion ingresada no existe en el tablero<<<");
-    }
-    public static void errorVaciaContraria(){
-        System.out.print("\n>>>Error, La posicion seleccionada esta vacia, o ha seleccionado una ficha del contrario<<<");
-    }
-    public static void errorNoMovimientos(){
-        System.out.print("\n<<<Error, la ficha no tiene ningun movimiento posible>>>");
-    }
-    public static void errorFichaSinMovimientos(){
-        System.out.print("<<<\nError, no es posible mover la ficha a la posicion ingresada>>>");
-    }
-    
 }

@@ -29,10 +29,10 @@ public class Visir extends Fichas {
 
     @Override
     public boolean valPosiblesmov() {
-        System.out.print("Sus movimientos posibles son: ");
+        Tablero.movimientos="Sus movimientos posibles son: ";
         if(General.validarFC(fm1+1, cm1+1)){
             if(Tablero.tabla[fm1][cm1].equals("--") || Tablero.tabla[fm1][cm1].charAt(1)==nemesis){
-                System.out.print(" ("+(fm1-8<0?(fm1-8)*-1:fm1-8)+","+(cm1+1)+") ");
+                Tablero.movimientos+=" ("+(fm1-8<0?(fm1-8)*-1:fm1-8)+","+(cm1+1)+") ";
                 m1=true;
             }else{
                 m1=false;
@@ -42,7 +42,7 @@ public class Visir extends Fichas {
         }
         if(General.validarFC(fm1+1, cm2+1)){
             if(Tablero.tabla[fm1][cm2].equals("--") || Tablero.tabla[fm1][cm2].charAt(1)==nemesis){
-                System.out.print(" ("+(fm1-8<0?(fm1-8)*-1:fm1-8)+","+(cm2+1)+") ");
+                Tablero.movimientos+=" ("+(fm1-8<0?(fm1-8)*-1:fm1-8)+","+(cm2+1)+") ";
                 m2=true;
             }else{
                 m2=false;
@@ -52,7 +52,7 @@ public class Visir extends Fichas {
         }
         if(General.validarFC(fm2+1, cm1+1)){
             if(Tablero.tabla[fm2][cm1].equals("--") || Tablero.tabla[fm2][cm1].charAt(1)==nemesis){
-                System.out.print(" ("+(fm2-8<0?(fm2-8)*-1:fm2-8)+","+(cm1+1)+") ");
+                Tablero.movimientos+=" ("+(fm2-8<0?(fm2-8)*-1:fm2-8)+","+(cm1+1)+") ";
                 m3=true;
             }else{
                 m3=false;
@@ -62,7 +62,7 @@ public class Visir extends Fichas {
         }
         if(General.validarFC(fm2+1, cm2+1)){
             if(Tablero.tabla[fm2][cm2].equals("--") || Tablero.tabla[fm2][cm2].charAt(1)==nemesis){
-                System.out.print(" ("+(fm2-8<0?(fm2-8)*-1:fm2-8)+","+(cm2+1)+") ");
+                Tablero.movimientos+=" ("+(fm2-8<0?(fm2-8)*-1:fm2-8)+","+(cm2+1)+") ";
                 m4=true;
             }else{
                 m4=false;
@@ -70,7 +70,6 @@ public class Visir extends Fichas {
         }else{
             m4=false;
         }
-        System.out.print("\n");
         
         if(m1==true || m2==true || m3==true || m4==true){
             return true;

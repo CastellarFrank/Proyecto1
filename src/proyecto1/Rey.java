@@ -33,10 +33,10 @@ public class Rey extends Fichas {
 
     @Override
     public boolean valPosiblesmov() {
-        System.out.print("Sus posibles movimientos son: ");
+        Tablero.movimientos="Sus posibles movimientos son: ";
         if(General.validarFC(fila+1, cm1+1)){
             if(Tablero.tabla[fila][cm1].equals("--") || Tablero.tabla[fila][cm1].charAt(1)==nemesis){
-                System.out.print(" ("+(fila-8<0 ? (fila-8)*-1:fila-8)+","+(cm1+1)+") ");
+                Tablero.movimientos+=" ("+(fila-8<0 ? (fila-8)*-1:fila-8)+","+(cm1+1)+") ";
                 m1=true;
             }else{
                 m1=false;
@@ -46,7 +46,7 @@ public class Rey extends Fichas {
         }
         if(General.validarFC(fila+1,cm2+1)){
             if(Tablero.tabla[fila][cm2].equals("--") || Tablero.tabla[fila][cm2].charAt(1)==nemesis){
-                System.out.print(" ("+(fila-8<0 ? (fila-8)*-1:fila-8)+","+(cm2+1)+") ");
+                Tablero.movimientos+=" ("+(fila-8<0 ? (fila-8)*-1:fila-8)+","+(cm2+1)+") ";
                 m2=true;
             }else{
                 m2=false;
@@ -56,7 +56,7 @@ public class Rey extends Fichas {
         }
         if(General.validarFC(fm1+1,columna+1)){
             if(Tablero.tabla[fm1][columna].equals("--") || Tablero.tabla[fm1][columna].charAt(1)==nemesis){
-                System.out.print(" ("+(fm1-8<0 ? (fm1-8)*-1:fm1-8)+","+(columna+1)+") ");
+                Tablero.movimientos+=" ("+(fm1-8<0 ? (fm1-8)*-1:fm1-8)+","+(columna+1)+") ";
                 m3=true;
             }else{
                 m3=false;
@@ -66,7 +66,7 @@ public class Rey extends Fichas {
         }
         if(General.validarFC(fm2+1,columna+1)){
             if(Tablero.tabla[fm2][columna].equals("--") || Tablero.tabla[fm2][columna].charAt(1)==nemesis){
-                System.out.print(" ("+(fm2-8<0 ? (fm2-8)*-1:fm2-8)+","+(columna+1)+") ");
+                Tablero.movimientos+=" ("+(fm2-8<0 ? (fm2-8)*-1:fm2-8)+","+(columna+1)+") ";
                 m4=true;
             }else{
                 m4=false;
@@ -76,7 +76,7 @@ public class Rey extends Fichas {
         }
         if(General.validarFC(fm1+1,cm1+1)){
             if(Tablero.tabla[fm1][cm1].equals("--") || Tablero.tabla[fm1][cm1].charAt(1)==nemesis){
-                System.out.print(" ("+(fm1-8<0 ? (fm1-8)*-1:fm1-8)+","+(cm1+1)+") ");
+                Tablero.movimientos+=" ("+(fm1-8<0 ? (fm1-8)*-1:fm1-8)+","+(cm1+1)+") ";
                 ml1=true;
             }else{
                 ml1=false;
@@ -86,7 +86,7 @@ public class Rey extends Fichas {
         }
         if(General.validarFC(fm1+1,cm2+1)){
             if(Tablero.tabla[fm1][cm2].equals("--") || Tablero.tabla[fm1][cm2].charAt(1)==nemesis){
-                System.out.print(" ("+(fm1-8<0 ? (fm1-8)*-1:fm1-8)+","+(cm2+1)+") ");
+                Tablero.movimientos+=" ("+(fm1-8<0 ? (fm1-8)*-1:fm1-8)+","+(cm2+1)+") ";
                 ml2=true;
             }else{
                 ml2=false;
@@ -96,7 +96,7 @@ public class Rey extends Fichas {
         }
         if(General.validarFC(fm2+1,cm1+1)){
             if(Tablero.tabla[fm2][cm1].equals("--") || Tablero.tabla[fm2][cm1].charAt(1)==nemesis){
-                System.out.print(" ("+(fm2-8<0 ? (fm2-8)*-1:fm2-8)+","+(cm1+1)+") ");
+                Tablero.movimientos+=" ("+(fm2-8<0 ? (fm2-8)*-1:fm2-8)+","+(cm1+1)+") ";
                 ml3=true;
             }else{
                 ml3=false;
@@ -106,7 +106,7 @@ public class Rey extends Fichas {
         }
         if(General.validarFC(fm2+1,cm2+1)){
             if(Tablero.tabla[fm2][cm2].equals("--") || Tablero.tabla[fm2][cm2].charAt(1)==nemesis){
-                System.out.print(" ("+(fm2-8<0 ? (fm2-8)*-1:fm2-8)+","+(cm2+1)+") ");
+                Tablero.movimientos+=" ("+(fm2-8<0 ? (fm2-8)*-1:fm2-8)+","+(cm2+1)+") ";
                 ml4=true;
             }else{
                 ml4=false;
@@ -114,7 +114,7 @@ public class Rey extends Fichas {
         }else{
             ml4=false;
         }
-        System.out.println("");
+        
         if(m1==true || m2==true || m3==true || m4==true || ml1==true || ml2==true || ml3==true || ml4==true || movL()){
             return true;
         }else{
@@ -126,7 +126,7 @@ public class Rey extends Fichas {
         int lfm1=fila+1,lfm2=fila-1,lcm1=columna+2,lcm2=columna-2;
         int lfml1=fila+2,lfml2=fila-2,lcml1=columna+1,lcml2=columna-1;
         boolean lm1,lm2,lm3,lm4,lml1,lml2,lml3,lml4;
-        System.out.print("Sus posibles movimientos para L son: ");
+        System.out.print("(Rey) Sus posibles movimientos para L son: ");
         
         if(General.validarFC(lfm1+1, lcm1+1)){
             if(Tablero.tabla[lfm1][lcm1].equals("--") || Tablero.tabla[lfm1][lcm1].charAt(1)==nemesis){

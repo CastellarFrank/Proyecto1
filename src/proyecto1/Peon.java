@@ -43,11 +43,11 @@ public class Peon extends Fichas{
     
     @Override
     public boolean valPosiblesmov(){
-        System.out.print("Sus posibles movimientos son: ");
+        Tablero.movimientos="Sus posibles movimientos son: ";
         if(General.validarFC(fm1+1,cm1+1)){
             if(Tablero.tabla[fm1][cm1].equals("--")){
                 mov1=true;
-                System.out.print(" ("+(fm1-8<0 ? (fm1-8)*-1:fm1-8)+","+(cm1+1)+") ");
+                Tablero.movimientos+=" ("+(fm1-8<0 ? (fm1-8)*-1:fm1-8)+","+(cm1+1)+") ";
             }else{
                 mov1=false;
             }
@@ -57,7 +57,7 @@ public class Peon extends Fichas{
         
         if(General.validarFC(fkill1+1,ckill1+1)){
             if(Tablero.tabla[fkill1][ckill1].charAt(1)==nemesis){
-                System.out.print(" ("+(fkill1-8<0 ? (fkill1-8)*-1:fkill1-8)+","+(ckill1+1)+") ");
+                Tablero.movimientos+=" ("+(fkill1-8<0 ? (fkill1-8)*-1:fkill1-8)+","+(ckill1+1)+") ";
                 kill1=true;            
             }else{
                 kill1=false;
@@ -67,7 +67,7 @@ public class Peon extends Fichas{
         }
         if(General.validarFC(fkill2+1,ckill2+1)){
             if(Tablero.tabla[fkill2][ckill2].charAt(1)==nemesis){
-                System.out.print(" ("+(fkill2-8<0 ? (fkill2-8)*-1:fkill2-8)+","+(ckill2+1)+") ");
+                Tablero.movimientos+=" ("+(fkill2-8<0 ? (fkill2-8)*-1:fkill2-8)+","+(ckill2+1)+") ";
                 kill2=true;
             }else{
                 kill2=false;
@@ -75,7 +75,7 @@ public class Peon extends Fichas{
         }else{
             kill2=false;
         }
-        System.out.println("");
+        
         if(mov1==true || kill1==true || kill2==true){
             return true;
         }else{

@@ -26,21 +26,19 @@ public class Torre extends Fichas{
 
     @Override
     public boolean valPosiblesmov(){
-        System.out.print("Sus posibles movimientos son: ");
+        Tablero.movimientos="Sus posibles movimientos son: ";
         cm1=buscarFrente(fila,columna,nemesis);
         if(cm1==columna){
             m1=false;
         }else{
-            System.out.println("hola");
-            System.out.print(" ("+(fila-8<0 ? (fila-8)*-1:fila-8)+","+(columna+2)+"-"+(cm1+1)+") ");
+            Tablero.movimientos+=" ("+(fila-8<0 ? (fila-8)*-1:fila-8)+","+(columna+2)+"-"+(cm1+1)+") ";
             m1=true;
         }
         fm1=buscarAtras(fila,columna,nemesis);
         if(fm1==columna){
             m2=false;
         }else{
-            System.out.println("hola1");
-            System.out.println(" ("+(fila-8<0 ? (fila-8)*-1:fila-8)+","+columna+"-"+(fm1+1)+") ");
+            Tablero.movimientos+=" ("+(fila-8<0 ? (fila-8)*-1:fila-8)+","+columna+"-"+(fm1+1)+") ";
             m2=true;
         }
         
@@ -48,17 +46,17 @@ public class Torre extends Fichas{
         if(fma==fila){
             ma=false;
         }else{
-            System.out.print(" ("+((fila-1)-8)+"-"+(fma-8)+","+(columna+1)+") ");
+            Tablero.movimientos+=" ("+((fila-1)-8)+"-"+(fma-8)+","+(columna+1)+") ";
             ma=true;
         }
         fmb=buscarAbajo(fila,columna,nemesis);
         if(fmb==fila){
             mb=false;
         }else{
-            System.out.print(" ("+((fila+1)-8)+"-"+(fmb-8)+","+(columna+1)+") ");
+            Tablero.movimientos+=" ("+((fila+1)-8)+"-"+(fmb-8)+","+(columna+1)+") ";
             ma=true;
         }
-        System.out.println("");
+      
         if(m1==true || ma==true || mb==true || m2==true)
             return true;
         return false;
