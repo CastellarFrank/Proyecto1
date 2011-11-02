@@ -64,43 +64,37 @@ class principal{
                     Tablero.mensajes(errorP);
                     Tablero.quienMueve(turno);
                     Tablero.movs(movs);              
-                    System.out.print("Ingrese la fila donde se encuentra la ficha a mover: ");
+                    System.out.print("Ingrese la fila donde se ENCUENTRA la ficha a mover: ");
                     fmov=lea.nextInt();                           
-                    System.out.print("Ingrese la columna donde se encuentra la ficha a mover: ");
+                    System.out.print("Ingrese la columna donde se ENCUENTRA la ficha a mover: ");
                     cmov=lea.nextInt();
                     if(General.validarFC(fmov,cmov)){
                         int tf=fmov-8,tc=cmov-1;
                         for(int e=0;e<fichas[turno].length;e++){
                               if(fichas[turno][e].dead==false && fichas[turno][e].columna==tc && fichas[turno][e].fila==(tf<0 ? tf*-1:tf)){
                                   if(fichas[turno][e].valPosiblesmov()){
-                                        boolean posicion=false;
                                         movs=true;
-                                        errorP=0;
-                                        do{
-                                            
-                                            Tablero.imprimirTabla(turno);
-                                            Tablero.mensajes(errorP);
-                                            Tablero.quienMueve(turno);
-                                            Tablero.movs(movs);
-                                            System.out.print("Ingrese la fila a donde desea mover la ficha: ");
-                                            fmov=lea.nextInt();
-                                            System.out.print("Ingrese la columna a donde desea la ficha: ");
-                                            cmov=lea.nextInt();
-                                            if(!fichas[turno][e].mover(fmov,cmov)){
-                                                errorP=4;
-                                                movs=true;
-                                                posicion=true;
+                                        errorP=0;                                            
+                                        Tablero.imprimirTabla(turno);
+                                        Tablero.mensajes(errorP);
+                                        Tablero.quienMueve(turno);
+                                        Tablero.movs(movs);
+                                        System.out.print("Ingrese la fila a donde desea MOVER la ficha: ");
+                                        fmov=lea.nextInt();
+                                        System.out.print("Ingrese la columna a donde desea MOVER la ficha: ");
+                                        cmov=lea.nextInt();
+                                        if(!fichas[turno][e].mover(fmov,cmov)){
+                                            errorP=4;
+                                            movs=false;
+                                        }else{
+                                            if(turno==0){
+                                                turno=1;
                                             }else{
-                                                if(turno==0){
-                                                    turno=1;
-                                                }else{
-                                                    turno=0;
-                                                }
-                                                errorP=0;
-                                                movs=false;
-                                                posicion=false;
+                                                turno=0;
                                             }
-                                        }while(posicion);
+                                            errorP=0;
+                                            movs=false;
+                                        }
                                         break;
                                   }else{
                                       movs=false;
