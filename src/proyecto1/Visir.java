@@ -13,10 +13,6 @@ public class Visir extends Fichas {
     private boolean m1,m2,m3,m4;
     public Visir(int f,int c,int e){
         super(f,c,e);
-        fm1=fila+1;
-        fm2=fila-1;
-        cm1=columna+1;
-        cm2=columna-1;
     }
     
     @Override
@@ -29,6 +25,7 @@ public class Visir extends Fichas {
 
     @Override
     public boolean valPosiblesmov() {
+        variables();
         Tablero.movimientos="Sus movimientos posibles son: ";
         if(General.validarFC(fm1+1, cm1+1)){
             if(Tablero.tabla[fm1][cm1].equals("--") || Tablero.tabla[fm1][cm1].charAt(1)==nemesis){
@@ -81,6 +78,14 @@ public class Visir extends Fichas {
     @Override
     public boolean mover(int f,int c) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void variables() {
+        fm1=fila+1;
+        fm2=fila-1;
+        cm1=columna+1;
+        cm2=columna-1;
     }
     
 }

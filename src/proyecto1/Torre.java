@@ -108,6 +108,11 @@ public class Torre extends Fichas{
     public boolean mover(int f, int c) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public void variables() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
     
     
 }

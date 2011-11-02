@@ -11,17 +11,17 @@ import java.util.Scanner;
  * @author NIGHTMARE
  */
 class principal{
-
+    
     /**
      * @param args the command line arguments
      */
+    public static Fichas fichas[][]=new Fichas[2][16];
+    
+    
     public static void main(String[] args) {
         Scanner lea=new Scanner(System.in);
         Jugadores jugadores[]=new Jugadores[10];
         Tablero tablero=new Tablero();
-        Fichas fichas[][]=new Fichas[2][16];
-        
-        
         
         
         int turno=0,fmov,cmov,errorP;
@@ -57,11 +57,13 @@ class principal{
 
                 tablero.iniciarTabla();
                 errorP=0;
+                boolean movs=false;
                 do{
                     
                     Tablero.imprimirTabla(turno);
                     Tablero.mensajes(errorP);
                     Tablero.quienMueve(turno);
+                    Tablero.movs(movs);              
                     System.out.print("Ingrese la fila donde se encuentra la ficha a mover: ");
                     fmov=lea.nextInt();                           
                     System.out.print("Ingrese la columna donde se encuentra la ficha a mover: ");
@@ -69,20 +71,24 @@ class principal{
                     if(General.validarFC(fmov,cmov)){
                         int tf=fmov-8,tc=cmov-1;
                         for(int e=0;e<fichas[turno].length;e++){
-                              if(fichas[turno][e].columna==tc && fichas[turno][e].fila==(tf<0 ? tf*-1:tf)){
+                              if(fichas[turno][e].dead==false && fichas[turno][e].columna==tc && fichas[turno][e].fila==(tf<0 ? tf*-1:tf)){
                                   if(fichas[turno][e].valPosiblesmov()){
                                         boolean posicion=false;
-                                        errorP=5;
+                                        movs=true;
+                                        errorP=0;
                                         do{
+                                            
                                             Tablero.imprimirTabla(turno);
                                             Tablero.mensajes(errorP);
                                             Tablero.quienMueve(turno);
+                                            Tablero.movs(movs);
                                             System.out.print("Ingrese la fila a donde desea mover la ficha: ");
                                             fmov=lea.nextInt();
                                             System.out.print("Ingrese la columna a donde desea la ficha: ");
                                             cmov=lea.nextInt();
                                             if(!fichas[turno][e].mover(fmov,cmov)){
-                                                errorP=4;                                  
+                                                errorP=4;
+                                                movs=true;
                                                 posicion=true;
                                             }else{
                                                 if(turno==0){
@@ -91,19 +97,23 @@ class principal{
                                                     turno=0;
                                                 }
                                                 errorP=0;
+                                                movs=false;
                                                 posicion=false;
                                             }
                                         }while(posicion);
                                         break;
                                   }else{
+                                      movs=false;
                                       errorP=3;                                      
                                       break;
                                   }
                               }else if(e==15){
+                                  movs=false;
                                   errorP=2;                                  
                               }
                         }
                     }else{
+                        movs=false;
                         errorP=1;
                     }
                     

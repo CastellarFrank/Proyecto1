@@ -14,9 +14,11 @@ public abstract class Fichas {
     public int bando;
     public int fm1,cm1;
     public char nemesis;
+    public boolean dead;
             
     public Fichas(int f,int c,int e){
         Tablero.tabla[f][c]=id(e);
+        dead=false;
         fila=f;
         columna=c;
         bando=e;
@@ -37,4 +39,12 @@ public abstract class Fichas {
     public abstract boolean valPosiblesmov();
     
     public abstract boolean mover(int f,int c);
+    
+    public abstract void variables();
+    
+    public final void muerto(){
+        dead=true;
+        fila=-1000001;
+        columna=-1000001;
+    }
 }

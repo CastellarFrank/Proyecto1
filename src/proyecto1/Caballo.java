@@ -13,16 +13,7 @@ public class Caballo extends Fichas{
    private boolean m1,m2,m3,m4,ml1,ml2,ml3,ml4;
            
    public Caballo(int f,int c,int e){
-        super(f,c,e);
-        fm1=fila+1;
-        fm2=fila-1;
-        cm1=columna+2;
-        cm2=columna-2;
-        fml1=fila+2;
-        fml2=fila-2;
-        cml1=columna+1;
-        cml2=columna-1;
-        
+        super(f,c,e);        
     }
    
     @Override
@@ -34,6 +25,7 @@ public class Caballo extends Fichas{
 
     @Override
     public boolean valPosiblesmov() {
+        variables();
         Tablero.movimientos="Sus posibles movimientos son: ";
         if(General.validarFC(fm1+1, cm1+1)){
             if(Tablero.tabla[fm1][cm1].equals("--") || Tablero.tabla[fm1][cm1].charAt(1)==nemesis){
@@ -125,7 +117,72 @@ public class Caballo extends Fichas{
 
     @Override
     public boolean mover(int f,int c) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        boolean movido=false;
+        if(General.validarFC(f, c)){
+            int tf=(f-8<0 ? (f-8)*-1:f-8),tc=c-1;
+            if(m1==true && fm1==tf && cm1==tc){
+                Tablero.tabla[fm1][cm1]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                columna=tc;
+                fila=tf;
+                movido=true;
+            }else if(m2==true && fm2==tf && cm1==tc){
+                Tablero.tabla[fm2][cm1]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                columna=tc;
+                fila=tf;
+                movido=true;
+            }else if(m3==true && fm1==tf && cm2==tc){
+                Tablero.tabla[fm1][cm2]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                columna=tc;
+                fila=tf;
+                movido=true;
+            }else if(m4==true && fm2==tf && cm2==tc){
+                Tablero.tabla[fm2][cm2]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                columna=tc;
+                fila=tf;
+                movido=true;
+            }else if(ml1==true && fml1==tf && cml1==tc){
+                Tablero.tabla[fml1][cml1]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                columna=tc;
+                fila=tf;
+                movido=true;
+            }else if(ml2==true && fml2==tf && cml1==tc){
+                Tablero.tabla[fml2][cml1]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                columna=tc;
+                fila=tf;
+                movido=true;
+            }else if(ml3==true && fml1==tf && cml2==tc){
+                Tablero.tabla[fml1][cml2]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                columna=tc;
+                fila=tf;
+                movido=true;
+            }else if(ml4==true && fml2==tf && cml2==tc){
+                Tablero.tabla[fml2][cml2]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                columna=tc;
+                fila=tf;
+                movido=true;
+            }
+        }
+        return movido;
+    }
+
+    @Override
+    public void variables() {
+        fm1=fila+1;
+        fm2=fila-1;
+        cm1=columna+2;
+        cm2=columna-2;
+        fml1=fila+2;
+        fml2=fila-2;
+        cml1=columna+1;
+        cml2=columna-1;
     }
     
 }

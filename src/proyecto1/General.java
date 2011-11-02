@@ -39,5 +39,12 @@ public class General {
             return true;
         }        
     }
+    public static void buscarKill(int f,int c,int b){
+        for(Fichas fich : principal.fichas[b]){            
+            if(fich.columna==c && fich.fila==f){
+                fich.muerto();
+            }
+        }
+    }
     
 }

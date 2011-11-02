@@ -10,6 +10,7 @@ package proyecto1;
  */
 public class Tablero {
     public static String movimientos;
+    public static String reyl;
     public static String tabla[][]=new String[8][8];
     
     
@@ -62,8 +63,17 @@ public class Tablero {
             System.out.print("\n<<<Error, la ficha no tiene ningun movimiento posible>>>");
         }else if(error==4){
             System.out.print("<<<\nError, no es posible mover la ficha a la posicion ingresada>>>");
-        }else if(error==5){
-            System.out.print("\n"+movimientos);
         }
     }
+    public static void movs(boolean t){
+        if(t){
+            System.out.print(movimientos+"\n");
+            if(Rey.mele==false && reyl!=null){
+                System.out.print(reyl+"\n");
+            }
+        }
+        
+        
+    }
+    
 }

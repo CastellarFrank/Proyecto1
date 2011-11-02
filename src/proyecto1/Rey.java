@@ -9,19 +9,19 @@ package proyecto1;
  * @author NIGHTMARE
  */
 public class Rey extends Fichas {
-    private boolean m1,m2,m3,m4,ml1,ml2,ml3,ml4,mele;
+    private boolean m1,m2,m3,m4,ml1,ml2,ml3,ml4;
+    public static boolean mele;
     private int fm2,cm2;
+    
+    private int lfm1=fila+1,lfm2=fila-1,lcm1=columna+2,lcm2=columna-2;
+    private int lfml1=fila+2,lfml2=fila-2,lcml1=columna+1,lcml2=columna-1;
+    private boolean lm1,lm2,lm3,lm4,lml1,lml2,lml3,lml4;
     
     
     
     public Rey(int f,int c,int e){
         super(f,c,e);
-        fm1=fila+1;
-        fm2=fila-1;
-        cm1=columna+1;
-        cm2=columna-1;
-        mele=false;
-        
+        mele=false;        
     }
     
     @Override
@@ -33,6 +33,7 @@ public class Rey extends Fichas {
 
     @Override
     public boolean valPosiblesmov() {
+        variables();
         Tablero.movimientos="Sus posibles movimientos son: ";
         if(General.validarFC(fila+1, cm1+1)){
             if(Tablero.tabla[fila][cm1].equals("--") || Tablero.tabla[fila][cm1].charAt(1)==nemesis){
@@ -115,7 +116,7 @@ public class Rey extends Fichas {
             ml4=false;
         }
         
-        if(m1==true || m2==true || m3==true || m4==true || ml1==true || ml2==true || ml3==true || ml4==true || movL()){
+        if(m1==true || m2==true || m3==true || m4==true || ml1==true || ml2==true || ml3==true || ml4==true || (mele==false ? movL():false)){
             return true;
         }else{
             return false;
@@ -123,14 +124,12 @@ public class Rey extends Fichas {
     }
     
     private boolean movL(){
-        int lfm1=fila+1,lfm2=fila-1,lcm1=columna+2,lcm2=columna-2;
-        int lfml1=fila+2,lfml2=fila-2,lcml1=columna+1,lcml2=columna-1;
-        boolean lm1,lm2,lm3,lm4,lml1,lml2,lml3,lml4;
-        System.out.print("(Rey) Sus posibles movimientos para L son: ");
+        
+        Tablero.reyl="(Rey) Los posibles movimientos en forma de L son: ";
         
         if(General.validarFC(lfm1+1, lcm1+1)){
             if(Tablero.tabla[lfm1][lcm1].equals("--") || Tablero.tabla[lfm1][lcm1].charAt(1)==nemesis){
-                System.out.print(" ("+(lfm1-8<0 ? (lfm1-8)*-1:lfm1-8)+","+(lcm1+1)+") ");
+                Tablero.reyl+=" ("+(lfm1-8<0 ? (lfm1-8)*-1:lfm1-8)+","+(lcm1+1)+") ";
                 lm1=true;
             }else{
                 lm1=false;
@@ -140,7 +139,7 @@ public class Rey extends Fichas {
         }
         if(General.validarFC(lfm2+1,lcm1+1)){
             if(Tablero.tabla[lfm2][lcm1].equals("--") || Tablero.tabla[lfm2][lcm1].charAt(1)==nemesis){
-                System.out.print(" ("+(lfm2-8<0 ? (lfm2-8)*-1:lfm2-8)+","+(lcm1+1)+") ");
+                Tablero.reyl+=" ("+(lfm2-8<0 ? (lfm2-8)*-1:lfm2-8)+","+(lcm1+1)+") ";
                 lm2=true;
             }else{
                 lm2=false;
@@ -150,7 +149,7 @@ public class Rey extends Fichas {
         }
         if(General.validarFC(lfm1+1,lcm2+1)){
             if(Tablero.tabla[lfm1][lcm2].equals("--") || Tablero.tabla[lfm1][lcm2].charAt(1)==nemesis){
-                System.out.print(" ("+(lfm1-8<0 ? (lfm1-8)*-1:lfm1-8)+","+(lcm2+1)+") ");
+                Tablero.reyl+=" ("+(lfm1-8<0 ? (lfm1-8)*-1:lfm1-8)+","+(lcm2+1)+") ";
                 lm3=true;
             }else{
                 lm3=false;
@@ -160,7 +159,7 @@ public class Rey extends Fichas {
         }
         if(General.validarFC(lfm2+1,lcm2+1)){
             if(Tablero.tabla[lfm2][lcm2].equals("--") || Tablero.tabla[lfm2][lcm2].charAt(1)==nemesis){
-                System.out.print(" ("+(lfm2-8<0 ? (lfm2-8)*-1:lfm2-8)+","+(lcm2+1)+") ");
+                Tablero.reyl+=" ("+(lfm2-8<0 ? (lfm2-8)*-1:lfm2-8)+","+(lcm2+1)+") ";
                 lm4=true;
             }else{
                 lm4=false;
@@ -170,7 +169,7 @@ public class Rey extends Fichas {
         }
         if(General.validarFC(lfml1+1,lcml1+1)){
             if(Tablero.tabla[lfml1][lcml1].equals("--") || Tablero.tabla[lfml1][lcml1].charAt(1)==nemesis){
-                System.out.print(" ("+(lfml1-8<0 ? (lfml1-8)*-1:lfml1-8)+","+(lcml1+1)+") ");
+                Tablero.reyl+=" ("+(lfml1-8<0 ? (lfml1-8)*-1:lfml1-8)+","+(lcml1+1)+") ";
                 lml1=true;
             }else{
                 lml1=false;
@@ -180,7 +179,7 @@ public class Rey extends Fichas {
         }
         if(General.validarFC(lfml1+1,lcml2+1)){
             if(Tablero.tabla[lfml1][lcml2].equals("--") || Tablero.tabla[lfml1][lcml2].charAt(1)==nemesis){
-                System.out.print(" ("+(lfml1-8<0 ? (lfml1-8)*-1:lfml1-8)+","+(lcml2+1)+") ");
+                Tablero.reyl+=" ("+(lfml1-8<0 ? (lfml1-8)*-1:lfml1-8)+","+(lcml2+1)+") ";
                 lml2=true;
             }else{
                 lml2=false;
@@ -190,7 +189,7 @@ public class Rey extends Fichas {
         }
         if(General.validarFC(lfml2+1,lcml1+1)){
             if(Tablero.tabla[lfml2][lcml1].equals("--") || Tablero.tabla[lfml2][lcml1].charAt(1)==nemesis){
-                System.out.print(" ("+(lfml2-8<0 ? (lfml2-8)*-1:lfml2-8)+","+(lcml1+1)+") ");
+                Tablero.reyl+=" ("+(lfml2-8<0 ? (lfml2-8)*-1:lfml2-8)+","+(lcml1+1)+") ";
                lml3=true;
             }else{
                 lml3=false;
@@ -200,7 +199,7 @@ public class Rey extends Fichas {
         }
         if(General.validarFC(lfml2+1,lcml2+1)){
             if(Tablero.tabla[lfml2][lcml2].equals("--") || Tablero.tabla[lfml2][lcml2].charAt(1)==nemesis){
-                System.out.print(" ("+(lfml2-8<0 ? (lfml2-8)*-1:lfml2-8)+","+(lcml2+1)+") ");
+                Tablero.reyl+=" ("+(lfml2-8<0 ? (lfml2-8)*-1:lfml2-8)+","+(lcml2+1)+") ";
                 lml4=true;
             }else{
                 lml4=false;
@@ -220,7 +219,124 @@ public class Rey extends Fichas {
 
     @Override
     public boolean mover(int f, int c) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        boolean movido=false;
+        if(General.validarFC(f, c)){
+            int tf=(f-8<0 ? (f-8)*-1:f-8),tc=c-1;
+            if(m1==true && fila==tf && cm1==tc){
+                Tablero.tabla[fila][cm1]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=tf;
+                columna=tc;
+                movido=true;
+            }else if(m2==true && fila==tf && cm2==tc){
+                Tablero.tabla[fila][cm2]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=tf;
+                columna=tc;
+                movido=true;
+            }else if(m3==true && fm1==tf && columna==tc){
+                Tablero.tabla[fm1][columna]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=tf;
+                columna=tc;
+                movido=true;
+            }else if(m4==true && fm2==tf && columna==tc){
+                Tablero.tabla[fm2][columna]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=tf;
+                columna=tc;
+                movido=true;
+            }else if(ml1==true && fm1==tf && cm1==tc){
+                Tablero.tabla[fm1][cm1]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=tf;
+                columna=tc;
+                movido=true;
+            }else if(ml2==true && fm1==tf && cm2==tc){
+                Tablero.tabla[fm1][cm2]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=tf;
+                columna=tc;
+                movido=true;
+            }else if(ml3==true && fm2==tf && cm1==tc){
+                Tablero.tabla[fm2][cm1]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=tf;
+                columna=tc;
+                movido=true;
+            }else if(ml4==true && fm2==tf && cm2==tc){
+                Tablero.tabla[fm2][cm2]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=tf;
+                columna=tc;
+                movido=true;
+            }if(lm1==true && lfm1==tf && lcm1==tc){
+                Tablero.tabla[lfm1][lcm1]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                columna=tc;
+                fila=tf;
+                mele=true;
+                movido=true;
+            }else if(lm2==true && lfm2==tf && lcm1==tc){
+                Tablero.tabla[lfm2][lcm1]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                columna=tc;
+                fila=tf;
+                mele=true;
+                movido=true;
+            }else if(lm3==true && lfm1==tf && lcm2==tc){
+                Tablero.tabla[lfm1][lcm2]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=tf;
+                columna=tc;
+                mele=true;
+                movido=true;
+            }else if(lm4==true && lfm2==tf && lcm2==tc){
+                Tablero.tabla[lfm2][lcm2]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=tf;
+                columna=tc;
+                mele=true;
+                movido=true;
+            }else if(lml1==true && lfml1==tf && lcml1==tc){
+                Tablero.tabla[lfml1][lcml1]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=tf;
+                columna=tc;
+                mele=true;
+                movido=true;
+            }else if(lml2==true && lfml1==tf && lcml2==tc){
+                Tablero.tabla[lfml1][lcml2]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=tf;
+                columna=tc;
+                mele=true;
+                movido=true;
+            }else if(lml3==true && lfml2==tf && lcml1==tc){
+                Tablero.tabla[lfml2][lcml1]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=tf;
+                columna=tc;
+                mele=true;
+                movido=true;
+            }else if(lml4==true && lfml2==tf && lcml2==tc){
+                Tablero.tabla[lfml2][lcml2]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=tf;
+                columna=tc;
+                mele=true;
+                movido=true;
+            }
+        }   
+        return movido;
+    }
+
+    @Override
+    public void variables() {
+        fm1=fila+1;
+        fm2=fila-1;
+        cm1=columna+1;
+        cm2=columna-1;
     }
     
 }

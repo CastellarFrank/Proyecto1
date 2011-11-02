@@ -14,23 +14,7 @@ public class Peon extends Fichas{
     
     
     public Peon(int f,int c,int e){
-        super(f,c,e);
-        if(bando==0){
-            fkill1=fila+1;
-            ckill1=columna+1;
-            fkill2=fila-1;
-            ckill2=columna+1;
-            fm1=fila;
-            cm1=columna+1;
-        }else{
-            fkill1=fila-1;
-            ckill1=columna-1;
-            fkill2=fila+1;
-            ckill2=columna-1;
-            fm1=fila;
-            cm1=columna-1;
-        }
-        
+        super(f,c,e);        
     }
     
     @Override
@@ -43,6 +27,7 @@ public class Peon extends Fichas{
     
     @Override
     public boolean valPosiblesmov(){
+        variables();
         Tablero.movimientos="Sus posibles movimientos son: ";
         if(General.validarFC(fm1+1,cm1+1)){
             if(Tablero.tabla[fm1][cm1].equals("--")){
@@ -110,6 +95,25 @@ public class Peon extends Fichas{
             }
         }
         return movido;
+    }
+
+    @Override
+    public void variables() {
+        if(bando==0){
+            fkill1=fila+1;
+            ckill1=columna+1;
+            fkill2=fila-1;
+            ckill2=columna+1;
+            fm1=fila;
+            cm1=columna+1;
+        }else{
+            fkill1=fila-1;
+            ckill1=columna-1;
+            fkill2=fila+1;
+            ckill2=columna-1;
+            fm1=fila;
+            cm1=columna-1;
+        }
     }
     
     
