@@ -9,14 +9,18 @@ package proyecto1;
  * @author NIGHTMARE
  */
 public class Jugadores {
-    private String nombre1;
-    private String nombre2;
+    public String nombre1;
+    public String nombre2;
     public static int contador=0;
+    public static String jugadorrojo;
+    public static String jugadorverde;
     
     public Jugadores(String n1,String n2){
         nombre1=n1;
         nombre2=n2;
         contador++;
+        jugadorrojo = n1;
+        jugadorverde = n2;
         
     }
     
