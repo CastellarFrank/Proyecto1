@@ -10,7 +10,7 @@ package proyecto1;
  */
 public class Rey extends Fichas {
     private boolean m1,m2,m3,m4,ml1,ml2,ml3,ml4;
-    public static boolean mele;
+    public static boolean mele,mele2;
     private int fm2,cm2;
     
     private int lfm1=fila+1,lfm2=fila-1,lcm1=columna+2,lcm2=columna-2;
@@ -21,7 +21,8 @@ public class Rey extends Fichas {
     
     public Rey(int f,int c,int e){
         super(f,c,e);
-        mele=false;        
+        mele=false;    
+        mele2=false;
     }
     
     @Override
@@ -116,7 +117,7 @@ public class Rey extends Fichas {
             ml4=false;
         }
         
-        if(m1==true || m2==true || m3==true || m4==true || ml1==true || ml2==true || ml3==true || ml4==true || (mele==false ? movL():false)){
+        if(m1==true || m2==true || m3==true || m4==true || ml1==true || ml2==true || ml3==true || ml4==true || ((bando==0 ? mele==false : mele2==false) ? movL():false)){
             return true;
         }else{
             return false;
@@ -275,56 +276,89 @@ public class Rey extends Fichas {
                 Tablero.tabla[fila][columna]="--";
                 columna=tc;
                 fila=tf;
-                mele=true;
+                if(bando==0){
+                    mele=true;
+                }else{
+                    mele2=true;
+                }
+                
                 movido=true;
             }else if(lm2==true && lfm2==tf && lcm1==tc){
                 Tablero.tabla[lfm2][lcm1]=id(bando);
                 Tablero.tabla[fila][columna]="--";
                 columna=tc;
                 fila=tf;
-                mele=true;
+                if(bando==0){
+                    mele=true;
+                }else{
+                    mele2=true;
+                }
                 movido=true;
             }else if(lm3==true && lfm1==tf && lcm2==tc){
                 Tablero.tabla[lfm1][lcm2]=id(bando);
                 Tablero.tabla[fila][columna]="--";
                 fila=tf;
                 columna=tc;
-                mele=true;
+                if(bando==0){
+                    mele=true;
+                }else{
+                    mele2=true;
+                }
                 movido=true;
             }else if(lm4==true && lfm2==tf && lcm2==tc){
                 Tablero.tabla[lfm2][lcm2]=id(bando);
                 Tablero.tabla[fila][columna]="--";
                 fila=tf;
                 columna=tc;
-                mele=true;
+                if(bando==0){
+                    mele=true;
+                }else{
+                    mele2=true;
+                }
                 movido=true;
             }else if(lml1==true && lfml1==tf && lcml1==tc){
                 Tablero.tabla[lfml1][lcml1]=id(bando);
                 Tablero.tabla[fila][columna]="--";
                 fila=tf;
                 columna=tc;
-                mele=true;
+                if(bando==0){
+                    mele=true;
+                }else{
+                    mele2=true;
+                }
                 movido=true;
             }else if(lml2==true && lfml1==tf && lcml2==tc){
                 Tablero.tabla[lfml1][lcml2]=id(bando);
                 Tablero.tabla[fila][columna]="--";
                 fila=tf;
                 columna=tc;
-                mele=true;
+                if(bando==0){
+                    mele=true;
+                }else{
+                    mele2=true;
+                }
                 movido=true;
             }else if(lml3==true && lfml2==tf && lcml1==tc){
                 Tablero.tabla[lfml2][lcml1]=id(bando);
                 Tablero.tabla[fila][columna]="--";
                 fila=tf;
                 columna=tc;
-                mele=true;
+                if(bando==0){
+                    mele=true;
+                }else{
+                    mele2=true;
+                }
                 movido=true;
             }else if(lml4==true && lfml2==tf && lcml2==tc){
                 Tablero.tabla[lfml2][lcml2]=id(bando);
                 Tablero.tabla[fila][columna]="--";
                 fila=tf;
                 columna=tc;
-                mele=true;
+                if(bando==0){
+                    mele=true;
+                }else{
+                    mele2=true;
+                }
                 movido=true;
             }
         }   

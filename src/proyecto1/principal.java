@@ -63,7 +63,7 @@ class principal{
                     Tablero.imprimirTabla(turno);
                     Tablero.mensajes(errorP);
                     Tablero.quienMueve(turno);
-                    Tablero.movs(movs);              
+                    Tablero.movs(movs,turno);              
                     System.out.print("Ingrese la fila donde se ENCUENTRA la ficha a mover: ");
                     fmov=lea.nextInt();                           
                     System.out.print("Ingrese la columna donde se ENCUENTRA la ficha a mover: ");
@@ -78,7 +78,7 @@ class principal{
                                         Tablero.imprimirTabla(turno);
                                         Tablero.mensajes(errorP);
                                         Tablero.quienMueve(turno);
-                                        Tablero.movs(movs);
+                                        Tablero.movs(movs,turno);
                                         System.out.print("Ingrese la fila a donde desea MOVER la ficha: ");
                                         fmov=lea.nextInt();
                                         System.out.print("Ingrese la columna a donde desea MOVER la ficha: ");

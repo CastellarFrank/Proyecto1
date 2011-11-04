@@ -15,7 +15,7 @@ public abstract class Fichas {
     public int fm1,cm1;
     public char nemesis;
     public boolean dead;
-            
+    public static int contarMuertes=0;
     public Fichas(int f,int c,int e){
         Tablero.tabla[f][c]=id(e);
         dead=false;
@@ -43,6 +43,7 @@ public abstract class Fichas {
     public abstract void variables();
     
     public final void muerto(){
+        contarMuertes++;
         dead=true;
         fila=-1000001;
         columna=-1000001;

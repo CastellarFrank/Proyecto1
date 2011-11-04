@@ -65,13 +65,14 @@ public class Tablero {
             System.out.print("<<<\nError, no es posible mover la ficha a la posicion ingresada>>>");
         }
     }
-    public static void movs(boolean t){
+    public static void movs(boolean t,int b){
         if(t){
             System.out.print(movimientos+"\n");
-            if(Rey.mele==false && reyl!=null){
+            if((b==0?Rey.mele==false: Rey.mele2==false) && reyl!=null){
                 System.out.print(reyl+"\n");
             }
         }
+        ;
         
         
     }
