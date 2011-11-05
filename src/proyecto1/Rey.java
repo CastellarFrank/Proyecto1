@@ -117,7 +117,7 @@ public class Rey extends Fichas {
             ml4=false;
         }
         
-        if(m1==true || m2==true || m3==true || m4==true || ml1==true || ml2==true || ml3==true || ml4==true || ((bando==0 ? mele==false : mele2==false) ? movL():false)){
+        if(((bando==0 ? mele==false : mele2==false) ? movL():false) || m1==true || m2==true || m3==true || m4==true || ml1==true || ml2==true || ml3==true || ml4==true){
             return true;
         }else{
             return false;

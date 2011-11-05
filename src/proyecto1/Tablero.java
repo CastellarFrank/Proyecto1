@@ -70,10 +70,11 @@ public class Tablero {
             System.out.print(movimientos+"\n");
             if((b==0?Rey.mele==false: Rey.mele2==false) && reyl!=null){
                 System.out.print(reyl+"\n");
+                reyl=null;
             }
         }
-        ;
-        
+    }
+    public static void comido(){
         
     }
     
