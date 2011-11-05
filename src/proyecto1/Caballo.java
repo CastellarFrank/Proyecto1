@@ -150,13 +150,13 @@ public class Caballo extends Fichas{
                 columna=tc;
                 fila=tf;
                 movido=true;
-            }else if(ml2==true && fml2==tf && cml1==tc){
+            }else if(ml3==true && fml2==tf && cml1==tc){
                 Tablero.tabla[fml2][cml1]=id(bando);
                 Tablero.tabla[fila][columna]="--";
                 columna=tc;
                 fila=tf;
                 movido=true;
-            }else if(ml3==true && fml1==tf && cml2==tc){
+            }else if(ml2==true && fml1==tf && cml2==tc){
                 Tablero.tabla[fml1][cml2]=id(bando);
                 Tablero.tabla[fila][columna]="--";
                 columna=tc;
