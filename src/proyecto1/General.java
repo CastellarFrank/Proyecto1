@@ -40,8 +40,15 @@ public class General {
         }        
     }
     public static void buscarKill(int f,int c,int b){
-        for(Fichas fich : principal.fichas[b]){            
-            if(fich.columna==c && fich.fila==f){
+        int buscar;
+        if(b==0){
+            buscar=1;
+        }else{
+            buscar=0;
+        }
+        int tf=((f-8)<0 ? (f-8)*-1 : (f-8)),tc=(c-1);
+        for(Fichas fich : principal.fichas[buscar]){            
+            if(fich.columna==tc && fich.fila==tf){
                 fich.muerto();
             }
         }

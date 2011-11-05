@@ -77,7 +77,36 @@ public class Visir extends Fichas {
 
     @Override
     public boolean mover(int f,int c) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        boolean movido=false;
+        if(General.validarFC(f, c)){
+            int tf=(f-8<0 ? (f-8)*-1:f-8),tc=c-1;
+            if(m1==true &&  fm1==tf && cm1==tc){
+                Tablero.tabla[tf][tc]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=tf;
+                columna=tc;
+                movido=true;
+            }else if(m2==true && fm1==tf && cm2==tc){
+                Tablero.tabla[tf][tc]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=tf;
+                columna=tc;
+                movido=true;
+            }else if(m3==true && fm2==tf && cm1==tc){
+                Tablero.tabla[tf][tc]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=tf;
+                columna=tc;
+                movido=true;
+            }else if(m4==true && fm2==tf && cm2==tc){
+                Tablero.tabla[tf][tc]=id(bando);
+                Tablero.tabla[fila][columna]="--";
+                fila=tf;
+                columna=tc;
+                movido=true;
+            }
+        }
+        return movido;
     }
 
     @Override

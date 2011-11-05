@@ -87,6 +87,7 @@ class principal{
                                             errorP=4;
                                             movs=false;
                                         }else{
+                                            General.buscarKill(fmov, cmov, turno);
                                             if(turno==0){
                                                 turno=1;
                                             }else{
