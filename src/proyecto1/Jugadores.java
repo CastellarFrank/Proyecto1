@@ -15,7 +15,7 @@ public class Jugadores {
     public static int difpiezas=0;
     public static String ganador1 = ("EL Jugador 1: "+Jugadores.jugadorrojo+" HA ¡TRIUNFADO! SE COMIO AL REY Y A "+Jugadores.difpiezas+" Piezas Mas del Jugador 2: "+Jugadores.jugadorverde);
     public static String ganador2 = ("EL Jugador 2: "+Jugadores.jugadorverde+" HA ¡TRIUNFADO! SE COMIO AL REY Y A "+Jugadores.difpiezas+" Piezas Mas del Jugador 1: "+Jugadores.jugadorrojo);
-    public String ganadores[][]= new String[10][2];
+    public String ganadores[]= new String[10];
     
     public Jugadores(String n1,String n2){
         
@@ -56,9 +56,9 @@ public class Jugadores {
     
     public void getGanadores(int turno, int contador){
         if(turno == 0){
-            ganadores[contador][0]= ganador1;
+            ganadores[contador-1]= ganador1;
         }else{
-            ganadores[contador][1]= ganador2;
+            ganadores[contador-1]= ganador2;
         }
       }
     }
