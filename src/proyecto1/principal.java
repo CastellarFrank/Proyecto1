@@ -113,6 +113,9 @@ class principal{
                     
                 }while(true);                
             }else if(menu=='2'){
+                for(Jugadores stats : jugadores){
+                    stats.ImprimirStats(turno);
+                }
                 
             }else{
                 System.exit(0);
