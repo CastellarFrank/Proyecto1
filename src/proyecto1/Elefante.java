@@ -118,5 +118,10 @@ public class Elefante extends Fichas {
         cm1=columna+2;
         cm2=columna-2;
     }
+
+    @Override
+    public String nombreFicha() {
+        return "Elefante";
+    }
     
 }

@@ -17,6 +17,7 @@ public abstract class Fichas {
     public boolean dead;
     public static int contarMuertes=0;
     public static int contarMuertes2=0;
+    
     public Fichas(int f,int c,int e){
         Tablero.tabla[f][c]=id(e);
         dead=false;
@@ -32,11 +33,8 @@ public abstract class Fichas {
     
     public abstract String id(int e);
     
-    public void movimiento(int fmov,int cmov){
-        Tablero.tabla[fila][columna]="--";
-        fila=fmov;
-        columna=cmov;
-    }
+    public abstract String nombreFicha();
+    
     public abstract boolean valPosiblesmov();
     
     public abstract boolean mover(int f,int c);

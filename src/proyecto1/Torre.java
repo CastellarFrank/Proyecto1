@@ -143,6 +143,11 @@ public class Torre extends Fichas{
     public void variables() {
         
     }
+
+    @Override
+    public String nombreFicha() {
+        return "Torre";
+    }
     
     
 }

@@ -116,5 +116,10 @@ public class Visir extends Fichas {
         cm1=columna+1;
         cm2=columna-1;
     }
+
+    @Override
+    public String nombreFicha() {
+        return "Visir";
+    }
     
 }

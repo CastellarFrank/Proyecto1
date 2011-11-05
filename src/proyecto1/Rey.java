@@ -383,5 +383,10 @@ public class Rey extends Fichas {
         lcml1=columna+1;
         lcml2=columna-1;
     }
+
+    @Override
+    public String nombreFicha() {
+        return "Rey";
+    }
     
 }

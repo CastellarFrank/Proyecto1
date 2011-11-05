@@ -8,14 +8,13 @@ package proyecto1;
  *
  * @author NIGHTMARE
  */
-public class Tablero {
+public class Tablero{
     public static String movimientos;
     public static String reyl;
     public static String tabla[][]=new String[8][8];
+    private static String pwned;
     
-    
-    
-    public void iniciarTabla(){
+    public static void iniciarTabla(){
         for(int i=0;i<tabla.length;i++){
             for(int e=0;e<tabla[i].length;e++){
                 if(tabla[i][e]==null){
@@ -26,7 +25,7 @@ public class Tablero {
         
     }
     
-    public static void imprimirTabla(int turno){
+    private static void imprimirTabla(int turno){
         System.out.print(" ");
         for(int i=0;i<tabla.length;i++){
             System.out.print(" "+(i+1)+" ");
@@ -74,8 +73,22 @@ public class Tablero {
             }
         }
     }
-    public static void comido(){
-        
+    public static void comido(String matador, String matado,int bando){
+        pwned="El "+matador+(bando==0?" Rojo del jugador ":" Verde del jugador ")+(bando==0 ? Jugadores.jugadorrojo:Jugadores.jugadorverde)+
+                           " ha aniquilado al "+matado+(bando==0?" Verde del jugador ":" Rojo del jugador ")+(bando==0 ? Jugadores.jugadorverde: Jugadores.jugadorrojo);
+        principal.kill=true;
     }
+    public static void pwned(boolean p){
+        if(p)
+            System.out.print("\n"+pwned);                
+    }
+   public static void imprimirTodo(int turno,boolean kill,int errorP,boolean movs){
+        imprimirTabla(turno);
+        pwned(kill);
+        mensajes(errorP);
+        quienMueve(turno);
+        movs(movs,turno);
+    }
+    
     
 }

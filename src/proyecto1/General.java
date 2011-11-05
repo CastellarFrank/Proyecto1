@@ -39,7 +39,7 @@ public class General {
             return true;
         }        
     }
-    public static void buscarKill(int f,int c,int b){
+    public static void buscarKill(int f,int c,int b,String m){
         int buscar;
         if(b==0){
             buscar=1;
@@ -49,7 +49,9 @@ public class General {
         int tf=((f-8)<0 ? (f-8)*-1 : (f-8)),tc=(c-1);
         for(Fichas fich : principal.fichas[buscar]){            
             if(fich.columna==tc && fich.fila==tf){
+                Tablero.comido(m,fich.nombreFicha(),b);
                 fich.muerto();
+                
             }
         }
     }

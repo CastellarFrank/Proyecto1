@@ -11,7 +11,8 @@ package proyecto1;
 public class Caballo extends Fichas{
    private int fm2,cm2,fml1,cml1,fml2,cml2;
    private boolean m1,m2,m3,m4,ml1,ml2,ml3,ml4;
-           
+   
+   
    public Caballo(int f,int c,int e){
         super(f,c,e);        
     }
@@ -184,6 +185,11 @@ public class Caballo extends Fichas{
         fml2=fila-2;
         cml1=columna+1;
         cml2=columna-1;
+    }
+
+    @Override
+    public String nombreFicha() {
+        return "Caballo";
     }
     
 }

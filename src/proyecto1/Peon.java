@@ -115,6 +115,11 @@ public class Peon extends Fichas{
             cm1=columna-1;
         }
     }
+
+    @Override
+    public String nombreFicha() {
+        return "Peon";
+    }
     
     
 }

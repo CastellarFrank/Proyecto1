@@ -16,16 +16,15 @@ class principal{
      * @param args the command line arguments
      */
     public static Fichas fichas[][]=new Fichas[2][16];
-    
-    
+    public static boolean kill;
+        
     public static void main(String[] args) {
         Scanner lea=new Scanner(System.in);
-        Jugadores jugadores[]=new Jugadores[10];
-        Tablero tablero=new Tablero();
+        Jugadores jugadores[]=new Jugadores[10];        
         
         
         int turno=0,fmov,cmov,errorP;
-        String nombre1,nombre2;
+        String nombre1,nombre2,posibleMatador;
         char menu;
         
         while(true){
@@ -55,15 +54,12 @@ class principal{
 
                 jugadores[Jugadores.contador]=new Jugadores(nombre1,nombre2);
 
-                tablero.iniciarTabla();
+                Tablero.iniciarTabla();
                 errorP=0;
                 boolean movs=false;
                 do{
                     
-                    Tablero.imprimirTabla(turno);
-                    Tablero.mensajes(errorP);
-                    Tablero.quienMueve(turno);
-                    Tablero.movs(movs,turno);              
+                    Tablero.imprimirTodo(turno,kill,errorP,movs);           
                     System.out.print("Ingrese la fila donde se ENCUENTRA la ficha a mover: ");
                     fmov=lea.nextInt();                           
                     System.out.print("Ingrese la columna donde se ENCUENTRA la ficha a mover: ");
@@ -73,21 +69,20 @@ class principal{
                         for(int e=0;e<fichas[turno].length;e++){
                               if(fichas[turno][e].dead==false && fichas[turno][e].columna==tc && fichas[turno][e].fila==(tf<0 ? tf*-1:tf)){
                                   if(fichas[turno][e].valPosiblesmov()){
+                                        posibleMatador=fichas[turno][e].nombreFicha();
                                         movs=true;
-                                        errorP=0;                                            
-                                        Tablero.imprimirTabla(turno);
-                                        Tablero.mensajes(errorP);
-                                        Tablero.quienMueve(turno);
-                                        Tablero.movs(movs,turno);
+                                        errorP=0;
+                                        Tablero.imprimirTodo(turno,kill,errorP,movs);
                                         System.out.print("Ingrese la fila a donde desea MOVER la ficha: ");
                                         fmov=lea.nextInt();
                                         System.out.print("Ingrese la columna a donde desea MOVER la ficha: ");
                                         cmov=lea.nextInt();
                                         if(!fichas[turno][e].mover(fmov,cmov)){
+                                            kill=false;
                                             errorP=4;
                                             movs=false;
                                         }else{
-                                            General.buscarKill(fmov, cmov, turno);
+                                            General.buscarKill(fmov, cmov, turno,posibleMatador);
                                             if(turno==0){
                                                 turno=1;
                                             }else{
@@ -98,16 +93,19 @@ class principal{
                                         }
                                         break;
                                   }else{
+                                      kill=false;
                                       movs=false;
                                       errorP=3;                                      
                                       break;
                                   }
                               }else if(e==15){
+                                  kill=false;
                                   movs=false;
                                   errorP=2;                                  
                               }
                         }
                     }else{
+                        kill=false;
                         movs=false;
                         errorP=1;
                     }
