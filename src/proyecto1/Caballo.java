@@ -171,6 +171,7 @@ public class Caballo extends Fichas{
             }
         }
         return movido;
+        
     }
 
     @Override
