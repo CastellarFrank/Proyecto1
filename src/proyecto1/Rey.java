@@ -13,8 +13,8 @@ public class Rey extends Fichas {
     public static boolean mele,mele2;
     private int fm2,cm2;
     
-    private int lfm1=fila+1,lfm2=fila-1,lcm1=columna+2,lcm2=columna-2;
-    private int lfml1=fila+2,lfml2=fila-2,lcml1=columna+1,lcml2=columna-1;
+    private int lfm1,lfm2,lcm1,lcm2;
+    private int lfml1,lfml2,lcml1,lcml2;
     private boolean lm1,lm2,lm3,lm4,lml1,lml2,lml3,lml4;
     
     
@@ -125,7 +125,7 @@ public class Rey extends Fichas {
     }
     
     private boolean movL(){
-        
+        variablesL();
         Tablero.reyl="(Rey) Los posibles movimientos en forma de L son: ";
         
         if(General.validarFC(lfm1+1, lcm1+1)){
@@ -371,6 +371,17 @@ public class Rey extends Fichas {
         fm2=fila-1;
         cm1=columna+1;
         cm2=columna-1;
+        
+    }
+    public void variablesL(){
+        lfm1=fila+1;
+        lfm2=fila-1;
+        lcm1=columna+2;
+        lcm2=columna-2;
+        lfml1=fila+2;
+        lfml2=fila-2;
+        lcml1=columna+1;
+        lcml2=columna-1;
     }
     
 }
