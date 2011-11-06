@@ -67,28 +67,56 @@ public class Tablero{
     public static void movs(boolean t,int b){
         if(t){
             System.out.print(movimientos+"\n");
-            if((b==0?Rey.mele==false: Rey.mele2==false) && reyl!=null){
+            if((b==0?Rey.mele==false: Rey.mele2==false) && Rey.reySelect==true &&reyl!=null && principal.reyAmenazado==false){
                 System.out.print(reyl+"\n");
                 reyl=null;
             }
         }
     }
     public static void comido(String matador, String matado,int bando){
-        pwned="El "+matador+(bando==0?" Rojo del jugador ":" Verde del jugador ")+(bando==0 ? Jugadores.jugadorrojo:Jugadores.jugadorverde)+
-                           " ha aniquilado al "+matado+(bando==0?" Verde del jugador ":" Rojo del jugador ")+(bando==0 ? Jugadores.jugadorverde: Jugadores.jugadorrojo);
+        pwned="<<<El "+matador+(bando==0?" Rojo del jugador ":" Verde del jugador ")+(bando==0 ? Jugadores.jugadorrojo:Jugadores.jugadorverde)+
+                           " ha aniquilado al "+matado+(bando==0?" Verde del jugador ":" Rojo del jugador ")+(bando==0 ? Jugadores.jugadorverde: Jugadores.jugadorrojo)+">>>";
         principal.kill=true;
     }
     public static void pwned(boolean p){
         if(p)
-            System.out.print("\n"+pwned);                
+            System.out.print("\n"+pwned);
+        principal.kill=false;
     }
-   public static void imprimirTodo(int turno,boolean kill,int errorP,boolean movs){
+   public static void imprimirTodo(int turno,boolean kill,int errorP,boolean movs,boolean amenaza){
         imprimirTabla(turno);
         pwned(kill);
+        emergencia(amenaza,turno);
         mensajes(errorP);
         quienMueve(turno);
         movs(movs,turno);
     }
-    
-    
+   public static void verificarAmenaza(int f,int c,int b){
+       int reyF=-1,reyC=-1,enemigo;
+       if(b==0){
+           enemigo=1;
+       }else{
+           enemigo=0;
+       }
+       for(Fichas ficha:principal.fichas[enemigo]){
+           if(ficha instanceof Rey){
+               reyF=ficha.fila;
+               reyC=ficha.columna;
+               break;
+           }    
+       }
+       if(f==reyF && c==reyC){
+           principal.reyAmenazado=true;
+       }
+   }
+   public static void emergencia(boolean amenaza,int b){
+       if(amenaza){
+           if(b==0){
+               System.out.print("\n <<<EL REY ROJO ESTA AMENAZADO>>>");
+           }else{
+               System.out.print("\n <<<EL REY VERDE ESTA AMENAZADO>>>");
+           }
+           
+       }
+   }
 }

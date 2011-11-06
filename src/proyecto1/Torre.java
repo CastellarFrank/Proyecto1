@@ -33,6 +33,7 @@ public class Torre extends Fichas{
         }else{
             Tablero.movimientos+=" ("+(fila-8<0 ? (fila-8)*-1:fila-8)+","+(columna+2)+" - "+(cm1+1)+") ";
             m1=true;
+            Tablero.verificarAmenaza(fila, cm1, bando);
         }
         fm1=buscarAtras(fila,columna,nemesis);
         if(fm1==columna){
@@ -40,6 +41,7 @@ public class Torre extends Fichas{
         }else{
             Tablero.movimientos+=" ("+(fila-8<0 ? (fila-8)*-1:fila-8)+","+columna+" - "+(fm1+1)+") ";
             m2=true;
+            Tablero.verificarAmenaza(fila, fm1, bando);
         }
         
         fma=buscarArriba(fila,columna,nemesis);
@@ -48,6 +50,7 @@ public class Torre extends Fichas{
         }else{
             Tablero.movimientos+=" ("+(((fila-1)-8)<0 ? ((fila-1)-8)*-1:(fila-1)-8)+" - "+((fma-8)<0?(fma-8)*-1:(fma-8))+","+(columna+1)+") ";
             ma=true;
+            Tablero.verificarAmenaza(fma, columna, bando);
         }
         fmb=buscarAbajo(fila,columna,nemesis);
         System.out.println(fmb);
@@ -56,6 +59,7 @@ public class Torre extends Fichas{
         }else{
             Tablero.movimientos+=" ("+(((fila+1)-8)<0 ? ((fila+1)-8)*-1:(fila+1)-8)+" - "+((fmb-8)<0 ?((fmb-8)*-1):(fmb-8))+","+(columna+1)+") ";
             mb=true;
+            Tablero.verificarAmenaza(fmb, columna, bando);
         }
       
         if(m1==true || ma==true || mb==true || m2==true)

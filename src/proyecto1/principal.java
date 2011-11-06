@@ -17,14 +17,17 @@ class principal{
      */
     public static Fichas fichas[][]=new Fichas[2][16];
     public static boolean kill;
+    public static boolean reyAmenazado;
+    public static Scanner lea=new Scanner(System.in);
         
     public static void main(String[] args) {
-        Scanner lea=new Scanner(System.in);
+        
         Jugadores jugadores[]=new Jugadores[10];        
         
         
         int turno=0,fmov,cmov,errorP;
         String nombre1,nombre2,posibleMatador;
+        boolean salir=true;
         char menu;
         
         while(true){
@@ -59,7 +62,7 @@ class principal{
                 boolean movs=false;
                 do{
                     
-                    Tablero.imprimirTodo(turno,kill,errorP,movs);           
+                    Tablero.imprimirTodo(turno,kill,errorP,movs,reyAmenazado);           
                     System.out.print("Ingrese la fila donde se ENCUENTRA la ficha a mover: ");
                     fmov=lea.nextInt();                           
                     System.out.print("Ingrese la columna donde se ENCUENTRA la ficha a mover: ");
@@ -72,17 +75,19 @@ class principal{
                                         posibleMatador=fichas[turno][e].nombreFicha();
                                         movs=true;
                                         errorP=0;
-                                        Tablero.imprimirTodo(turno,kill,errorP,movs);
+                                        Tablero.imprimirTodo(turno,kill,errorP,movs,reyAmenazado);
                                         System.out.print("Ingrese la fila a donde desea MOVER la ficha: ");
                                         fmov=lea.nextInt();
                                         System.out.print("Ingrese la columna a donde desea MOVER la ficha: ");
                                         cmov=lea.nextInt();
                                         if(!fichas[turno][e].mover(fmov,cmov)){
-                                            kill=false;
+                                            reyAmenazado=false;
                                             errorP=4;
                                             movs=false;
                                         }else{
                                             General.buscarKill(fmov, cmov, turno,posibleMatador);
+                                            fichas[turno][e].valPosiblesmov();
+                                            Rey.reySelect=false;
                                             if(turno==0){
                                                 turno=1;
                                             }else{
@@ -93,24 +98,28 @@ class principal{
                                         }
                                         break;
                                   }else{
-                                      kill=false;
+                                      reyAmenazado=false;
                                       movs=false;
                                       errorP=3;                                      
                                       break;
                                   }
                               }else if(e==15){
-                                  kill=false;
+                                  reyAmenazado=false;
                                   movs=false;
                                   errorP=2;                                  
                               }
                         }
+                    }else if(fmov==-1 && cmov==-1){
+                        if(GameOver.rendirse()){
+                            salir=false;
+                        }
                     }else{
-                        kill=false;
+                        reyAmenazado=false;
                         movs=false;
                         errorP=1;
                     }
                     
-                }while(true);                
+                }while(salir);                
             }else if(menu=='2'){
                 for(Jugadores stats : jugadores){
                     stats.ImprimirStats(turno);

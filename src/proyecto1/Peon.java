@@ -43,7 +43,8 @@ public class Peon extends Fichas{
         if(General.validarFC(fkill1+1,ckill1+1)){
             if(Tablero.tabla[fkill1][ckill1].charAt(1)==nemesis){
                 Tablero.movimientos+=" ("+(fkill1-8<0 ? (fkill1-8)*-1:fkill1-8)+","+(ckill1+1)+") ";
-                kill1=true;            
+                kill1=true;     
+                Tablero.verificarAmenaza(fkill1, ckill1, bando);
             }else{
                 kill1=false;
             }
@@ -54,6 +55,7 @@ public class Peon extends Fichas{
             if(Tablero.tabla[fkill2][ckill2].charAt(1)==nemesis){
                 Tablero.movimientos+=" ("+(fkill2-8<0 ? (fkill2-8)*-1:fkill2-8)+","+(ckill2+1)+") ";
                 kill2=true;
+                Tablero.verificarAmenaza(fkill2, ckill2, bando);
             }else{
                 kill2=false;
             }

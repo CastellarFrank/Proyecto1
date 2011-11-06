@@ -31,6 +31,7 @@ public class Elefante extends Fichas {
             if(Tablero.tabla[fm1][cm1].equals("--") || Tablero.tabla[fm1][cm1].charAt(1)==nemesis){
                 Tablero.movimientos+=" ("+(fm1-8<0?(fm1-8)*-1:fm1-8)+","+(cm1+1)+") ";
                 m1=true;
+                Tablero.verificarAmenaza(fm1, cm1, bando);
             }else{
                 m1=false;
             }
@@ -41,6 +42,7 @@ public class Elefante extends Fichas {
             if(Tablero.tabla[fm1][cm2].equals("--") || Tablero.tabla[fm1][cm2].charAt(1)==nemesis){
                 Tablero.movimientos+=" ("+(fm1-8<0?(fm1-8)*-1:fm1-8)+","+(cm2+1)+") ";
                 m2=true;
+                Tablero.verificarAmenaza(fm1, cm2, bando);
             }else{
                 m2=false;
             }
@@ -51,6 +53,7 @@ public class Elefante extends Fichas {
             if(Tablero.tabla[fm2][cm1].equals("--") || Tablero.tabla[fm2][cm1].charAt(1)==nemesis){
                 Tablero.movimientos+=" ("+(fm2-8<0?(fm2-8)*-1:fm2-8)+","+(cm1+1)+") ";
                 m3=true;
+                Tablero.verificarAmenaza(fm2, cm1, bando);
             }else{
                 m3=false;
             }
@@ -61,6 +64,7 @@ public class Elefante extends Fichas {
             if(Tablero.tabla[fm2][cm2].equals("--") || Tablero.tabla[fm2][cm2].charAt(1)==nemesis){
                 Tablero.movimientos+=" ("+(fm2-8<0?(fm2-8)*-1:fm2-8)+","+(cm2+1)+") ";
                 m4=true;
+                Tablero.verificarAmenaza(fm2, cm2, bando);
             }else{
                 m4=false;
             }

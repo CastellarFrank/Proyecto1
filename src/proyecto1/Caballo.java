@@ -32,6 +32,7 @@ public class Caballo extends Fichas{
             if(Tablero.tabla[fm1][cm1].equals("--") || Tablero.tabla[fm1][cm1].charAt(1)==nemesis){
                 Tablero.movimientos+=" ("+(fm1-8<0 ? (fm1-8)*-1:fm1-8)+","+(cm1+1)+") ";
                 m1=true;
+                Tablero.verificarAmenaza(fm1, cm1, bando);
             }else{
                 m1=false;
             }
@@ -42,6 +43,7 @@ public class Caballo extends Fichas{
             if(Tablero.tabla[fm2][cm1].equals("--") || Tablero.tabla[fm2][cm1].charAt(1)==nemesis){
                 Tablero.movimientos+=" ("+(fm2-8<0 ? (fm2-8)*-1:fm2-8)+","+(cm1+1)+") ";
                 m2=true;
+                Tablero.verificarAmenaza(fm2, cm1, bando);
             }else{
                 m2=false;
             }
@@ -52,6 +54,7 @@ public class Caballo extends Fichas{
             if(Tablero.tabla[fm1][cm2].equals("--") || Tablero.tabla[fm1][cm2].charAt(1)==nemesis){
                 Tablero.movimientos+=" ("+(fm1-8<0 ? (fm1-8)*-1:fm1-8)+","+(cm2+1)+") ";
                 m3=true;
+                Tablero.verificarAmenaza(fm1, cm2, bando);
             }else{
                 m3=false;
             }
@@ -62,6 +65,7 @@ public class Caballo extends Fichas{
             if(Tablero.tabla[fm2][cm2].equals("--") || Tablero.tabla[fm2][cm2].charAt(1)==nemesis){
                 Tablero.movimientos+=" ("+(fm2-8<0 ? (fm2-8)*-1:fm2-8)+","+(cm2+1)+") ";
                 m4=true;
+                Tablero.verificarAmenaza(fm2, cm2, bando);
             }else{
                 m4=false;
             }
@@ -72,6 +76,7 @@ public class Caballo extends Fichas{
             if(Tablero.tabla[fml1][cml1].equals("--") || Tablero.tabla[fml1][cml1].charAt(1)==nemesis){
                 Tablero.movimientos+=" ("+(fml1-8<0 ? (fml1-8)*-1:fml1-8)+","+(cml1+1)+") ";
                 ml1=true;
+                Tablero.verificarAmenaza(fml1, cml1, bando);
             }else{
                 ml1=false;
             }
@@ -82,6 +87,7 @@ public class Caballo extends Fichas{
             if(Tablero.tabla[fml1][cml2].equals("--") || Tablero.tabla[fml1][cml2].charAt(1)==nemesis){
                 Tablero.movimientos+=" ("+(fml1-8<0 ? (fml1-8)*-1:fml1-8)+","+(cml2+1)+") ";
                 ml2=true;
+                Tablero.verificarAmenaza(fml1, cml2, bando);
             }else{
                 ml2=false;
             }
@@ -92,6 +98,7 @@ public class Caballo extends Fichas{
             if(Tablero.tabla[fml2][cml1].equals("--") || Tablero.tabla[fml2][cml1].charAt(1)==nemesis){
                 Tablero.movimientos+=" ("+(fml2-8<0 ? (fml2-8)*-1:fml2-8)+","+(cml1+1)+") ";
                 ml3=true;
+                Tablero.verificarAmenaza(fml2, cml1, bando);
             }else{
                 ml3=false;
             }
@@ -102,6 +109,7 @@ public class Caballo extends Fichas{
             if(Tablero.tabla[fml2][cml2].equals("--") || Tablero.tabla[fml2][cml2].charAt(1)==nemesis){
                 Tablero.movimientos+=" ("+(fml2-8<0 ? (fml2-8)*-1:fml2-8)+","+(cml2+1)+") ";
                 ml4=true;
+                Tablero.verificarAmenaza(fml2, cml2, bando);
             }else{
                 ml4=false;
             }
