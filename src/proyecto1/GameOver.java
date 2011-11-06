@@ -8,7 +8,9 @@ package proyecto1;
  *
  * @author Armin
  */
+
 public class GameOver {
+    public static String text;
     
     
     public static boolean rendirse(){
@@ -24,7 +26,23 @@ public class GameOver {
         }
     }
     
-    public static void Derrota(int turno){
-        System.out.print("<<<<GAME OVER>>>>");
+    public static String Derrota(int turno,int tipo){
+        System.out.println("\n");
+        System.out.println("<<<<GAME OVER>>>>");
+        if(tipo==0){
+            if(turno==0){
+                text="EL JUGADOR 2: "+Jugadores.jugadorverde+" HA ¡TRIUNFADO!, POR RENDICION DEL JUGADOR 1: "+Jugadores.jugadorrojo;
+            }else{
+                text="EL JUGADOR 1: "+Jugadores.jugadorrojo+" HA ¡TRIUNFADO!, POR RENDICION DEL JUGADOR 2: "+Jugadores.jugadorverde;
+            }
+        }else{
+            if(turno==0){
+                text="EL JUGADOR 2: "+Jugadores.jugadorverde+" HA ¡TRIUNFADO!, SE COMIO AL REY Y A "+(Fichas.contarMuertes-1)+" PIEZAS MAS DEL JUGADOR 1: "+Jugadores.jugadorrojo;
+            }else{
+                text="EL JUGADOR 1: "+Jugadores.jugadorrojo+" HA ¡TRIUNFADO!, SE COMIO AL REY Y A "+(Fichas.contarMuertes2-1)+" PIEZAS MAS DEL JUGADOR 2: "+Jugadores.jugadorrojo;
+            }
+        }
+        System.out.println(text);
+        return text;
     }
 }

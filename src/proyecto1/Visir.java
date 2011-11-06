@@ -8,6 +8,7 @@ package proyecto1;
  *
  * @author NIGHTMARE
  */
+
 public class Visir extends Fichas {
     private int fm2,cm2;
     private boolean m1,m2,m3,m4;

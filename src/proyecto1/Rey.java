@@ -134,10 +134,11 @@ public class Rey extends Fichas {
         }
     }
     
+    
     private boolean movL(){
         variablesL();
         Tablero.reyl="(Rey) Los posibles movimientos en forma de L son: ";
-        if(bando==0?mele==false:mele2==false && principal.reyAmenazado==false){
+        if((bando==0?mele==false:mele2==false) && (bando==0?principal.reyAmenazado==false:principal.reyAmenazado2==false)){
             if(General.validarFC(lfm1+1, lcm1+1)){
                 if(Tablero.tabla[lfm1][lcm1].equals("--") || Tablero.tabla[lfm1][lcm1].charAt(1)==nemesis){
                     Tablero.reyl+=" ("+(lfm1-8<0 ? (lfm1-8)*-1:lfm1-8)+","+(lcm1+1)+") ";
@@ -290,7 +291,7 @@ public class Rey extends Fichas {
                 fila=tf;
                 columna=tc;
                 movido=true;
-            }else if((bando==0?mele==false:mele2==false) && principal.reyAmenazado==false){
+            }else if((bando==0?mele==false:mele2==false) && (bando==0?principal.reyAmenazado==false:principal.reyAmenazado2==false)){
                     if(lm1==true && lfm1==tf && lcm1==tc){
                     Tablero.tabla[lfm1][lcm1]=id(bando);
                     Tablero.tabla[fila][columna]="--";

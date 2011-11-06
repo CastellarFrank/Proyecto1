@@ -8,6 +8,7 @@ package proyecto1;
  *
  * @author NIGHTMARE
  */
+
 public class Torre extends Fichas{
     private boolean m1,ma,mb,m2;
     private int fma,fmb;

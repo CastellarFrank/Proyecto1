@@ -13,7 +13,15 @@ public class Tablero{
     public static String reyl;
     public static String tabla[][]=new String[8][8];
     private static String pwned;
+    public static int reyF=-1,reyC=-1;
     
+    public static void iniciar(){
+        for(int i=0;i<tabla.length;i++){
+            for(int e=0;e<tabla.length;e++){
+                tabla[i][e]="--";
+            }
+        }
+    }
     public static void iniciarTabla(){
         for(int i=0;i<tabla.length;i++){
             for(int e=0;e<tabla[i].length;e++){
@@ -67,7 +75,7 @@ public class Tablero{
     public static void movs(boolean t,int b){
         if(t){
             System.out.print(movimientos+"\n");
-            if((b==0?Rey.mele==false: Rey.mele2==false) && Rey.reySelect==true &&reyl!=null && principal.reyAmenazado==false){
+            if((b==0?Rey.mele==false: Rey.mele2==false) && Rey.reySelect==true &&reyl!=null && (b==0?principal.reyAmenazado==false:principal.reyAmenazado2==false)){
                 System.out.print(reyl+"\n");
                 reyl=null;
             }
@@ -91,8 +99,16 @@ public class Tablero{
         quienMueve(turno);
         movs(movs,turno);
     }
-   public static void verificarAmenaza(int f,int c,int b){
-       int reyF=-1,reyC=-1,enemigo;
+   public static void FallOfTheKing(int b,int f,int c){
+       definirRey(b);
+       
+       if(f==reyF && c==reyC){
+           principal.reyd=true;
+       }
+       
+   }
+   private static void definirRey(int b){
+       int enemigo;
        if(b==0){
            enemigo=1;
        }else{
@@ -105,9 +121,18 @@ public class Tablero{
                break;
            }    
        }
-       if(f==reyF && c==reyC){
-           principal.reyAmenazado=true;
-       }
+   }
+   public static void verificarAmenaza(int f,int c,int b){
+        definirRey(b);
+        if(f==reyF && c==reyC){
+            if(b==1){
+               principal.reyAmenazado=true; 
+            }else{
+                principal.reyAmenazado2=true;
+            }
+            
+            
+        }
    }
    public static void emergencia(boolean amenaza,int b){
        if(amenaza){

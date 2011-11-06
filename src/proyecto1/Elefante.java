@@ -8,6 +8,7 @@ package proyecto1;
  *
  * @author NIGHTMARE
  */
+
 public class Elefante extends Fichas {
     private boolean m1,m2,m3,m4;
     private int fm2,cm2;            

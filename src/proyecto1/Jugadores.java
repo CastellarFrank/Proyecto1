@@ -15,20 +15,17 @@ public class Jugadores {
     public String Victoria;
     
     public Jugadores(String n1,String n2){
-        contador++;
-        jugadorrojo = n1;
-        jugadorverde = n2;   
-    }    
-    
-       
-    public void ImprimirStats(int turno){
-            GameOver.Derrota(turno);
-        }
-    
-    public void getGanadores(int turno, int contador){
-       
+            contador++;
+            jugadorrojo = n1;
+            jugadorverde = n2; 
+          
+    }
+        
+    public void setVictoria(String v){
+        Victoria=v;       
     }
 }
+
         
     
 

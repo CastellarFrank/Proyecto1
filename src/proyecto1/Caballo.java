@@ -94,6 +94,7 @@ public class Caballo extends Fichas{
         }else{
             ml2=false;
         }
+        
         if(General.validarFC(fml2+1,cml1+1)){
             if(Tablero.tabla[fml2][cml1].equals("--") || Tablero.tabla[fml2][cml1].charAt(1)==nemesis){
                 Tablero.movimientos+=" ("+(fml2-8<0 ? (fml2-8)*-1:fml2-8)+","+(cml1+1)+") ";

@@ -50,10 +50,9 @@ public class General {
         for(Fichas fich : principal.fichas[buscar]){            
             if(fich.columna==tc && fich.fila==tf){
                 Tablero.comido(m,fich.nombreFicha(),b);
-                fich.muerto();
-                
+                Tablero.FallOfTheKing(b,tf,tc);
+                fich.muerto();            
             }
         }
     }
-    
 }
